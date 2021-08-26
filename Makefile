@@ -11,7 +11,7 @@ TASK_3 := thread_shop
 all: $(TASK_1) $(TASK_2) $(TASK_3) 
 
 debug: CFLAGS += -g 
-debug: $(TASK_1) $(TASK_2) $(TASK_3) debug
+debug: all
 
 $(TASK_1): $(TASK_1).c
 	$(CC) $(CFLAGS) $(TASK_1).c -o $(TASK_1) $(LDFLAGS) 
