@@ -2,18 +2,25 @@ CC := gcc
 CFLAGS := -c
 LDFLAGS := -lpthread
 
-.PHONY: all test glob_number clean
+TASK_1 := test
+TASK_2 := glob_number
+TASK_3 := thread_shop
 
-all: test glob_number
+.PHONY: all $(TASK_1) $(TASK_2) $(TASK_3) clean
+
+all: $(TASK_1) $(TASK_2) $(TASK_3) 
 
 debug: CFLAGS += -g 
-debug: all
+debug: $(TASK_1) $(TASK_2) $(TASK_3) debug
 
-test: test.c
-	$(CC) $(CFLAGS) test.c -o test $(LDFLAGS) 
+$(TASK_1): $(TASK_1).c
+	$(CC) $(CFLAGS) $(TASK_1).c -o $(TASK_1) $(LDFLAGS) 
 
-glob_number: glob_number.c
-	$(CC) $(CFLAGS) glob_number.c -o glob_number $(LDFLAGS)
+$(TASK_2): $(TASK_2).c
+	$(CC) $(CFLAGS) $(TASK_2).c -o $(TASK_2) $(LDFLAGS)
+
+$(TASK_3):
+	cd $(TASK_3) && make
 
 clean:
-	rm -rf test glob_number
+	rm -rf $(TASK_1) $(TASK_2) && cd $(TASK_3)/ && make clean

@@ -29,8 +29,8 @@ void *client(void *args)
                     client->id, client->cost, i, shop[i]);
                 printf("\nCLIENT %d END WORKING\n\n", client->id);
                 pthread_mutex_unlock(&mutex[i]);
-            }  
-            sleep(2);         
+                sleep(2);  
+            }         
         }
     }
  
