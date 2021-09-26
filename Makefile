@@ -14,10 +14,10 @@ debug: CFLAGS += -g
 debug: all
 
 $(TASK_1): $(TASK_1).c
-	$(CC) $(TASK_1).c -o $(TASK_1) $(LDFLAGS)
+	$(CC) $(CFLAGS) $(TASK_1).c -o $(TASK_1) $(LDFLAGS)
 
 $(TASK_2): $(TASK_2).c
-	$(CC) $(TASK_2).c -o $(TASK_2) $(LDFLAGS)
+	$(CC) $(CFLAGS) $(TASK_2).c -o $(TASK_2) $(LDFLAGS)
 
 $(TASK_3):
 	cd $(TASK_3) && make
